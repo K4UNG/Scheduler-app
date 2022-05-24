@@ -1,0 +1,21 @@
+.hero {
+    background-image: linear-gradient(#dddddd7b, #dddddd7b), url(./background.png);
+    padding: 2rem 0 3rem;
+    border-radius: 0 0 40px 40px;
+}
+
+.hero__title {
+    text-align: center;
+    color: rgb(78, 78, 78);
+    text-transform: uppercase;
+}
+
+.select {
+    border: 0;
+    padding: .2rem.5rem;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

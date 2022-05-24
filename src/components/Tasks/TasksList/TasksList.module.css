@@ -1,0 +1,30 @@
+.list {
+    margin: 2.5rem 0;
+}
+
+.list__wrapper {
+    display: grid;
+    grid-gap: .5rem;
+}
+
+.task {
+    background-color: var(--clr-input);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.task.selected {
+    border-color: var(--clr-text);
+}
+
+.task span {
+    width: 50px;
+    height: 22px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 10px;
+}

@@ -1,0 +1,28 @@
+.clock {
+    width: var(--clock);
+    height: var(--clock);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem auto 2rem;
+    outline: 6px solid white;
+    box-shadow: 0 0 10px 0 #0002;
+}
+
+.piece {
+    height: calc(var(--clock) / 2);
+    width: calc((3.1 * var(--clock))/12 + 2px);
+    position: absolute;
+    background-color: #c6c6c633;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform-origin: 50% top;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: background-color 200ms ease;
+}
+
+.piece:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}

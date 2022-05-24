@@ -1,0 +1,11 @@
+.schedule>*+* {
+    margin-top: .5rem;
+}
+
+.schedule input:last-of-type {
+    margin: 0;
+}
+
+.schedule button {
+    margin-top: 1rem;
+}

@@ -1,0 +1,46 @@
+.modal {
+    background-color: white;
+    padding: 1.5rem;
+    width: 90%;
+    border-radius: 20px;
+    position: relative;
+}
+
+.modal button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 0;
+    background-color: transparent;
+    width: 25px;
+    cursor: pointer;
+}
+
+.modal svg {
+    fill: var(--clr-text);
+    transition: fill 150ms ease;
+}
+
+.modal button:hover svg {
+    fill: var(--clr-red);
+}
+
+.modal span {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+}
+
+.modal p:first-of-type {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: .5rem;
+}
+
+.modal label {
+    font-weight: 600;
+    margin-top: .5rem;
+    display: inline-block;
+}

@@ -1,0 +1,22 @@
+.wrapper {
+    margin: 2rem 0;
+}
+
+.wrapper label {
+    margin-top: .5rem;
+}
+
+.wrapper label:first-of-type {
+    margin: 0;
+}
+
+.wrapper button {
+    margin-top: 1rem;
+}
+
+.wrapper input[type=color] {
+    border: 0;
+    width: 100px;
+    height: 35px;
+    padding: 3px 5px;
+}
