@@ -61,6 +61,7 @@ export default function Clock({ time }) {
             onClick={() => {
               if (mode === 'Inspect' && curr) {
                 dispatch(uiActions.openModal({
+                  id: task.id,
                   title: task.title, 
                   description: task.description,
                   color: task.color
@@ -74,6 +75,13 @@ export default function Clock({ time }) {
                     time: time,
                   })
                 );
+              } else if (mode === 'Delete') {
+                if (!curr) return
+                const task = taskList.find((item) => item.color === curr);
+                dispatch(tasksActions.removeTime({
+                  id: task.id,
+                  time: time
+                }))
               }
             }}
           />

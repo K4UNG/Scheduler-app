@@ -7,13 +7,16 @@
 }
 
 .modal button {
+    cursor: pointer;
+}
+
+.modal .close {
     position: absolute;
     top: 15px;
     right: 15px;
     border: 0;
     background-color: transparent;
     width: 25px;
-    cursor: pointer;
 }
 
 .modal svg {
@@ -21,7 +24,7 @@
     transition: fill 150ms ease;
 }
 
-.modal button:hover svg {
+.modal .close:hover svg {
     fill: var(--clr-red);
 }
 
@@ -43,4 +46,32 @@
     font-weight: 600;
     margin-top: .5rem;
     display: inline-block;
+}
+
+.edit {
+    font-weight: 600;
+    color: white;
+    background-color: var(--clr-primary);
+    padding: 3px .5rem;
+    border-radius: 5px;
+    border: 0;
+    margin-top: .5rem;
+    transition: opacity 150ms ease;
+}
+
+.edit:hover {
+    opacity: .8;
+}
+
+.modal textarea,
+.title {
+    display: block;
+    width: 100%;
+    background-color: var(--clr-input);
+    padding: .5rem;
+}
+
+.modal input,
+.modal textarea {
+    border: 0;
 }

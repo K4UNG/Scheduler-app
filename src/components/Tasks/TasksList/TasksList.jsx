@@ -28,13 +28,16 @@ export default function TasksList() {
                 if (mode === "Inspect") {
                   dispatch(
                     uiActions.openModal({
+                      id: task.id,
                       title: task.title,
                       description: task.description,
                       color: task.color,
                     })
                   );
-                } else if (mode === 'Select') {
-                  dispatch(tasksActions.changeSelected(task.id))
+                } else if (mode === "Select") {
+                  dispatch(tasksActions.changeSelected(task.id));
+                } else if (mode === 'Delete') {
+                  dispatch(uiActions.askConfirmation(task.title));
                 }
               }}
             >

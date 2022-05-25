@@ -43,6 +43,30 @@ const tasksSlice = createSlice({
         }
       });
     },
+    removeTime(state, action) {
+      const { id, time } = action.payload;
+      const task = state.schedules[state.current].find(
+        (item) => item.id === id
+      );
+      task.times = task.times.filter((tm) => tm !== time);
+    },
+    updateTask(state, action) {
+      const { title, color, description, id } = action.payload;
+      state.schedules[state.current] = state.schedules[
+        state.current
+      ].map((task) => {
+        if (task.id === id) {
+          return {
+            id,
+            title,
+            color,
+            description,
+            times: task.times,
+          };
+        }
+        return task;
+      });
+    },
   },
 });
 

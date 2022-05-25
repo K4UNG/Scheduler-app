@@ -29,11 +29,17 @@
     font-weight: bold;
     background-color: transparent;
     cursor: pointer;
+    transition: background-color 150ms ease;
 }
 
 .btn.active {
     color: white;
     background-color: var(--clr-primary);
+}
+
+.btn:last-child.active {
+    border-color: var(--clr-red);
+    background-color: var(--clr-red);
 }
 
 .body input[type=text] {

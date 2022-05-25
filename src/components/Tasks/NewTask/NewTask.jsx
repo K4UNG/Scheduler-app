@@ -1,27 +1,46 @@
 import styles from "./NewTask.module.css";
 import { useState } from "react";
 import { tasksActions } from "../../../store/tasksSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function NewTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("#777777");
+  const current = useSelector((state) => state.tasks.current);
+  const colors = useSelector((state) =>
+    state.tasks.schedules[current].map((task) => task.color)
+  );
+  const [colorError, setColorError] = useState(null);
+  const [titleError, setTitleError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   function submitHandler(e) {
-    e.preventDefault()
-    dispatch(tasksActions.addTask({
+    e.preventDefault();
+    if (colors.includes(color)) {
+      setColorError("Please select a new color");
+      return;
+    } else if (!title) {
+      setTitleError(true);
+      return;
+    } else if (!description) {
+      setDescriptionError(true);
+      return;
+    }
+    dispatch(
+      tasksActions.addTask({
         id: Math.random(),
         title,
         description,
         color,
-        times: []
-    }))
-    setTitle('')
-    setDescription('')
-    setColor('#777777')
+        times: [],
+      })
+    );
+    setTitle("");
+    setDescription("");
+    setColor("#777777");
   }
 
   return (
@@ -30,14 +49,18 @@ export default function NewTask() {
       <form onSubmit={submitHandler}>
         <label htmlFor="color">Color</label>
         <br />
-        <input
-          id="color"
-          type="color"
-          value={color}
-          onChange={(e) => {
-            setColor(e.target.value)
-          }}
-        />
+        <div className={styles.color__wrapper}>
+          <input
+            id="color"
+            type="color"
+            value={color}
+            onChange={(e) => {
+              setColorError(null);
+              setColor(e.target.value);
+            }}
+          />
+          {colorError && <span>{colorError}</span>}
+        </div>
         <br />
 
         <label htmlFor="title">Title</label>
@@ -45,10 +68,11 @@ export default function NewTask() {
         <input
           id="title"
           type="text"
-          className="input"
+          className={`input ${titleError && "error"}`}
           placeholder="Task title"
           value={title}
           onChange={(e) => {
+            setTitleError(false);
             setTitle(e.target.value);
           }}
         />
@@ -58,10 +82,11 @@ export default function NewTask() {
         <br />
         <textarea
           id="description"
-          className="input"
+          className={`input ${descriptionError && "error"}`}
           placeholder="Task description"
           value={description}
           onChange={(e) => {
+            setDescriptionError(false);
             setDescription(e.target.value);
           }}
         ></textarea>

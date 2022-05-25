@@ -38,6 +38,10 @@ body {
   padding: .5rem 1rem;
 }
 
+.input.error {
+  border: 2px solid var(--clr-red);
+}
+
 .input::placeholder {
   color: var(--clr-place);
 }

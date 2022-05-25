@@ -9,6 +9,7 @@ export default function Backdrop({children}) {
     return <div ref={backdropRef} className={styles.backdrop} onClick={(e) => {
         if (e.target === backdropRef.current)
             dispatch(uiActions.closeModal())
+            dispatch(uiActions.closeConfirmation())
     }}>
         {children}
     </div>

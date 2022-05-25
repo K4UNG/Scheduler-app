@@ -4,9 +4,12 @@ import Body from "./components/Body/Body";
 import { useSelector } from "react-redux";
 import Backdrop from "./components/UI/Backdrop/Backdrop";
 import Modal from "./components/UI/Modal/Modal";
+import Confirm from "./components/UI/Confirm/Confirm";
 
 function App() {
-  const {shown, title, description, color} = useSelector((state) => state.ui);
+  const { id, shown, title, description, color, conf, confTitle } = useSelector(
+    (state) => state.ui
+  );
   return (
     <>
       <main>
@@ -16,7 +19,21 @@ function App() {
       {shown &&
         ReactDOM.createPortal(
           <Backdrop>
-            <Modal title={title} description={description} color={color} />
+            <Modal
+              id={id}
+              title={title}
+              description={description}
+              color={color}
+            />
+          </Backdrop>,
+          document.getElementById("ui")
+        )}
+        {conf &&
+        ReactDOM.createPortal(
+          <Backdrop>
+            <Confirm
+              title={confTitle}
+            />
           </Backdrop>,
           document.getElementById("ui")
         )}
