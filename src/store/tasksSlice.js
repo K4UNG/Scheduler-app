@@ -4,21 +4,16 @@ const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
     schedules: {
-      "new schedule": [
-        {
-          id: "123",
-          title: "test",
-          description: "test description",
-          color: "#f48045",
-          times: [],
-        },
-      ],
+      "new schedule": [],
     },
     mode: "Inspect",
     current: "new schedule",
     selected: null,
   },
   reducers: {
+    replaceTasks(state, action) {
+      return action.payload
+    },
     addTask(state, action) {
       state.schedules[state.current].push(action.payload);
     },
@@ -52,21 +47,36 @@ const tasksSlice = createSlice({
     },
     updateTask(state, action) {
       const { title, color, description, id } = action.payload;
-      state.schedules[state.current] = state.schedules[
-        state.current
-      ].map((task) => {
-        if (task.id === id) {
-          return {
-            id,
-            title,
-            color,
-            description,
-            times: task.times,
-          };
+      state.schedules[state.current] = state.schedules[state.current].map(
+        (task) => {
+          if (task.id === id) {
+            return {
+              id,
+              title,
+              color,
+              description,
+              times: task.times,
+            };
+          }
+          return task;
         }
-        return task;
-      });
+      );
     },
+    removeTask(state, action) {
+      state.schedules[state.current] = state.schedules[state.current].filter(
+        (task) => {
+          return task.id !== action.payload;
+        }
+      );
+    },
+    addSchedule(state, action) {
+      state.schedules[action.payload] = [];
+      state.current = action.payload;
+      state.selected = null;
+    },
+    changeSchedule(state, action) {
+      state.current = action.payload
+    }
   },
 });
 

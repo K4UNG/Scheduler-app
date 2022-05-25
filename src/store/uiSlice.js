@@ -9,7 +9,8 @@ const uiSlice = createSlice({
         description: null,
         color: null,
         conf: false,
-        confTitle: null
+        confTitle: null,
+        confId: null
     },
     reducers: {
         closeModal(state) {
@@ -25,7 +26,8 @@ const uiSlice = createSlice({
         },
         askConfirmation(state, action) {
             state.conf = true
-            state.confTitle = action.payload
+            state.confTitle = action.payload.title
+            state.confId = action.payload.id
         },
         closeConfirmation(state) {
             state.conf = false

@@ -14,6 +14,7 @@ export default function TasksList() {
     <div className={styles.list}>
       <h2>Tasks</h2>
       <div className={styles.list__wrapper}>
+        {tasks.length === 0 && <p>No tasks added yet.</p>}
         {tasks.map((task) => {
           return (
             <div
@@ -37,7 +38,10 @@ export default function TasksList() {
                 } else if (mode === "Select") {
                   dispatch(tasksActions.changeSelected(task.id));
                 } else if (mode === 'Delete') {
-                  dispatch(uiActions.askConfirmation(task.title));
+                  dispatch(uiActions.askConfirmation({
+                    title: task.title,
+                    id: task.id
+                  }));
                 }
               }}
             >
