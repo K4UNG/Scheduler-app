@@ -76,6 +76,10 @@ const tasksSlice = createSlice({
     },
     changeSchedule(state, action) {
       state.current = action.payload
+    },
+    removeSchedule(state, action) {
+      delete state.schedules[action.payload]
+      state.current = Object.keys(state.schedules)[0]
     }
   },
 });

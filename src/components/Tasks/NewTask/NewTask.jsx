@@ -68,7 +68,7 @@ export default function NewTask() {
         <input
           id="title"
           type="text"
-          className={`input ${titleError && "error"}`}
+          className={`input ${styles.title} ${titleError && "error"}`}
           placeholder="Task title"
           value={title}
           onChange={(e) => {
@@ -82,7 +82,7 @@ export default function NewTask() {
         <br />
         <textarea
           id="description"
-          className={`input ${descriptionError && "error"}`}
+          className={`input ${styles.desc} ${descriptionError && "error"}`}
           placeholder="Task description"
           value={description}
           onChange={(e) => {

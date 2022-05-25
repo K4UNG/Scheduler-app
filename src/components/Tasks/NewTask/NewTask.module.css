@@ -19,6 +19,7 @@
     width: 100px;
     height: 35px;
     padding: 3px 5px;
+    cursor: pointer;
 }
 
 .color__wrapper {
@@ -29,4 +30,12 @@
 .color__wrapper span {
     margin-left: 5px;
     color: var(--clr-red);
+}
+
+.title {
+    max-width: 400px;
+}
+
+.desc {
+    max-width: 600px;
 }

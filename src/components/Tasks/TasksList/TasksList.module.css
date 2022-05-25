@@ -15,6 +15,7 @@
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid transparent;
+    user-select: none;
 }
 
 .task.selected {
@@ -27,4 +28,16 @@
     border-radius: 3px;
     display: inline-block;
     margin-right: 10px;
+}
+
+@media (min-width: 640px) {
+    .list__wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 960px) {
+    .list__wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

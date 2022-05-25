@@ -3,6 +3,7 @@
     padding: 1rem;
     border-radius: 15px;
     width: 80%;
+    max-width: 400px;
 }
 
 .modal p {
@@ -36,4 +37,10 @@
 
 .delete {
     background-color: var(--clr-red);
+}
+
+@media (min-width: 600px) {
+    .modal {
+        padding: 1.5rem;
+    }
 }

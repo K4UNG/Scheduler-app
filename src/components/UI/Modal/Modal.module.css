@@ -4,6 +4,7 @@
     width: 90%;
     border-radius: 20px;
     position: relative;
+    max-width: 500px;
 }
 
 .modal button {

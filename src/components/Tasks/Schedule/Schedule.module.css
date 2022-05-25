@@ -9,3 +9,30 @@
 .schedule button {
     margin-top: 1rem;
 }
+
+.schedule .delete {
+    margin-left: .5rem;
+    background-color: var(--clr-red);
+    margin-top: 0;
+}
+
+@media (min-width: 760px) {
+    .break {
+        display: none;
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .wrapper select {
+        margin-right: 1rem;
+    }
+
+    .wrapper button {
+        margin: 0;
+        margin-left: 1rem;
+    }
+}

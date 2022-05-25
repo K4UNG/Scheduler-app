@@ -20,10 +20,18 @@ export default function Confirm({ title, id }) {
         >
           Cancel
         </button>
-        <button className={styles.delete} onClick={() => {
-            dispatch(tasksActions.removeTask(id))
-            dispatch(uiActions.closeConfirmation())
-        }}>
+        <button
+          className={styles.delete}
+          onClick={() => {
+            if (id === "remove") {
+              dispatch(tasksActions.removeSchedule(title));
+              dispatch(uiActions.closeConfirmation());
+            } else {
+              dispatch(tasksActions.removeTask(id));
+              dispatch(uiActions.closeConfirmation());
+            }
+          }}
+        >
           Delete
         </button>
       </div>

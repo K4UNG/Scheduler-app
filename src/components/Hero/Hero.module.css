@@ -1,7 +1,9 @@
 .hero {
-    background-image: linear-gradient(#dddddd7b, #dddddd7b), url(./background.png);
+    background-image: linear-gradient(#f0f0f07b, #f0f0f07b), url(./background.png);
     padding: 2rem 0 3rem;
     border-radius: 0 0 40px 40px;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero__title {
@@ -17,5 +19,27 @@
     display: block;
     border-radius: 5px;
     cursor: pointer;
+    background-color: white;
 }
 
+.clock__wrapper p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+@media (min-width: 860px) {
+    .clock__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    .div:first-child {
+        margin-right: 3rem;
+    }
+
+    .div:last-child {
+        margin-left: 3rem;
+    }
+}

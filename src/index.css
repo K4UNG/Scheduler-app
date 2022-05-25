@@ -60,3 +60,13 @@ body {
 .btn:hover {
   opacity: .8;
 }
+
+textarea {
+  resize: none;
+}
+
+@media (min-width: 620px) {
+  :root {
+    --padding: 3rem;
+  }
+}
