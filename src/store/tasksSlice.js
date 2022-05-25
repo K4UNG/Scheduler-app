@@ -63,6 +63,9 @@ const tasksSlice = createSlice({
       );
     },
     removeTask(state, action) {
+      if (state.selected === action.payload) {
+        state.selected = null
+      }
       state.schedules[state.current] = state.schedules[state.current].filter(
         (task) => {
           return task.id !== action.payload;
@@ -80,6 +83,7 @@ const tasksSlice = createSlice({
     removeSchedule(state, action) {
       delete state.schedules[action.payload]
       state.current = Object.keys(state.schedules)[0]
+      state.selected = null
     }
   },
 });
