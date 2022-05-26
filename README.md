@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# **<div align='center'>Scheduler</div>**
+**<div align='center'>A scheduler built to make scheduling my study easier</div>**
+**<a href='https://scheduler-k4ung.netlify.app' align='center' style='display: block' >Live site</a>**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### **Built with**
+- React
+- CSS module
+- Redux
 
-## Available Scripts
+![scheduler screenshot](./images/screenshot.png)
 
-In the project directory, you can run:
+### **How to use**
 
-### `npm start`
+    First you need a schedule set. The default one given is named 'new schedule' but you can just simply create a new schedule and switch to it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    And then you can start adding you tasks. You must specify the color, title and description for a task. Title and description fields are required. Colors must be unique.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    There're three modes you can choose. The first one, 'Inspect' allows you to inspect your task details in task list and on the clock by simply clicking on it. You can also edit them if you want.
 
-### `npm test`
+    The second mode, 'Select' Allows you to assign your tasks to the clock. You can simply select the task you want in the task list and add it to the clock by clicking the desired part. The selected task will be highlighted with a black border.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    The third one, 'Delete' allows you to unassign certain parts of the clock, remove tasks and schedule sets. You must have more than one schedule to delete one.
 
-### `npm run build`
+### **How it started**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I used to draw my schedules on a paper. One day, I got the idea to just make an app out of it so here it is, a scheduler app with circular clocks.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Idea**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I wanted this scheduler to be clock-based. So there will be 24 slots for a schedule, one for an hour. User should be able to add task with a title, description and a color. There're three modes to switch to. First one is Inspect which allows user to inspect what their current tasks are about(and edit them maybe). Second one is Select, where users can select one of the tasks and actually assign it to the desired hours on the clock. Lastly, the Delete mode which allows users to unassign certain parts of the clock, remove tasks completely or even one of the schedules.
 
-### `npm run eject`
+### **Design process**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I wanted the design to be minimal and user-friendly so I just went with this simple, straight-to-the-point layout.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![figma design screenshot](./images/figma.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **Coding process**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This is my first project using Redux and I can't be greateful enough for choosing Redux to do this. I couldn't imagine the state management of this app without Redux. Making the clock functional was also very challenging. I created 12 slices for both clocks, each slice with its own number which is then used to identify the position of the pieces. State management was one of the hardest I've done with React. The controls were flexible so I had to look out for every edge cases to avoid unexpected bugs and errors.
 
-## Learn More
+### **Some features I'm glad I added**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I almost didn't add the delete functionalities because (I was LAZY), but they turned out to be quite simple. I'm also glad that I allowed the users to have multiple schedule sets. Overall, this was an incredible challenge for me and I'm just glad that I had the idea and went for actually writing it.

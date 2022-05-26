@@ -6,6 +6,10 @@
     margin: 0;
 }
 
+.schedule select {
+    cursor: pointer;
+}
+
 .schedule button {
     margin-top: 1rem;
 }
@@ -16,7 +20,7 @@
     margin-top: 0;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 880px) {
     .break {
         display: none;
     }
