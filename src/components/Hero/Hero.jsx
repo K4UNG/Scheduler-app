@@ -33,7 +33,7 @@ export default function Hero() {
         {(current === "night" || screen === "desktop") && (
           <div className={styles.div}>
             <Clock time={13} />
-            {screen === "desktop" && <p>1AM-12AM</p>}
+            {screen === "desktop" && <p>1PM-12PM</p>}
           </div>
         )}
       </div>
